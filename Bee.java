@@ -14,6 +14,36 @@ public class Bee extends Actor
      */
     public void act()
     {
+        
         // Add your action code here.
+        
+        if(Greenfoot.isKeyDown("left") && Greenfoot.isKeyDown("shift"))
+        {
+            move(-2);
+        } else if(Greenfoot.isKeyDown("left"))
+        {
+            move(-5);
+        }
+        
+        if(Greenfoot.isKeyDown("right") && Greenfoot.isKeyDown("shift"))
+        {
+            move(2);
+        } else if(Greenfoot.isKeyDown("right"))
+        {
+            move(5);
+        }
+
+        eat();
+    }
+    
+    public void eat()
+    {
+        if(isTouching(pizza.class))
+        {
+            removeTouching(pizza.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.creatFood();
+            world.increaseScore();
+        }
     }
 }
