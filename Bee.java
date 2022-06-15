@@ -12,6 +12,8 @@ public class Bee extends Actor
      * Act - do whatever the Bee wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    GreenfootSound BeeSound = new GreenfootSound ("Bee-noise.mp3");
+    
     public void act()
     {
         
@@ -44,6 +46,7 @@ public class Bee extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.creatFood();
             world.increaseScore();
+            BeeSound.play();
         }
     }
 }
